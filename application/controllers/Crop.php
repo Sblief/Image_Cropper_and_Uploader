@@ -9,10 +9,9 @@ class Crop extends CI_Controller {
     }
 
 
-    public  function getCropData()
+    public function getCropData()
     {
         echo json_encode(array('resp' => '1', 'txt' => $_POST));
-
     }
 
 }

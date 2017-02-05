@@ -57,7 +57,7 @@ $(document).ready( function() {
         $.ajax({
             type: "POST",
             cache: false,
-            url: "crop/getCropData",
+            url: "index.php/crop/getcropdata",
             data: cropped,
             success: function(msg){
                 console.log(msg);

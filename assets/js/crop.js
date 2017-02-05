@@ -61,13 +61,43 @@ $(document).ready( function() {
             data: cropped,
             success: function(msg){
                 console.log(msg);
+                imageUpload();
                
             },
             error: function(){
                 alert("failure");
             }
         });
+
+
+
     });
+
+    function imageUpload() {
+        $('#img-upload').cropper('getCroppedCanvas').toBlob(function (blob) {
+            var formData = new FormData();
+            formData.append('croppedImage', blob);
+            $.ajax('index.php/crop/img', {
+                method: "POST",
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function (msg) {
+                    var message = jQuery.parseJSON(msg);
+                    var image = "assets/img/"+message.txt+".jpg";
+                    console.log('Upload success');
+                    $('#crop_image').modal("hide");
+                    $('#img-uploaded').attr('src',image);
+                },
+                error: function () {
+                    console.log('Upload error');
+                }
+            });
+        });
+
+    }
+
+
  
 
 });

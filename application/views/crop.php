@@ -12,6 +12,7 @@
 <body>
 <div class="container text-center">
 <button class="btn btn-success" data-toggle="modal" data-target="#crop_image" >Upload Image</button>
+    <img id="img-uploaded" src="">
 </div>
 <div id="crop_image" class="modal fade" role="dialog" style="display:none">
     <div class="modal-dialog">
